@@ -1,0 +1,21 @@
+stages:
+  - build
+  - deploy
+
+variables:
+  DOCKER_HOST: "tcp://172.23.113.2:2375" # Replace with your server IP
+  DOCKER_TLS_VERIFY: "0"
+
+build:
+  stage: build
+  script:
+    - docker-compose -f docker-compose.yml build
+
+deploy:
+  stage: deploy
+  script:
+    - docker-compose -f docker-compose.yml down
+    - docker-compose -f docker-compose.yml up -d
+  environment:
+    name: production
+    url: http://172.23.113.2:5173 # Replace with your frontend URL
