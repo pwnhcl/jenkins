@@ -10,6 +10,8 @@ build:
   stage: build
   script:
     - docker-compose -f docker-compose.yml build
+  tags:
+    - mern
 
 deploy:
   stage: deploy
