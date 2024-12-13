@@ -9,15 +9,15 @@ variables:
 build:
   stage: build
   script:
-    - docker compose -f dockercompose.yml build
+    - docker compose -f docker-compose.yaml build
   tags:
     - mern
 
 deploy:
   stage: deploy
   script:
-    - docker compose -f dockercompose.yml down
-    - docker compose -f dockercompose.yml up -d
+    - docker compose -f docker-compose.yaml down
+    - docker compose -f docker-compose.yaml up -d
   environment:
     name: production
     url: http://172.23.113.2:5173 # Replace with your frontend URL
