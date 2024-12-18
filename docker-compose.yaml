@@ -3,7 +3,7 @@ services:
     build:
       context: mern/frontend
       dockerfile: Dockerfile
-    expose:
+    ports:
       - "5173:5173"
     networks:
       - mern-network
@@ -15,7 +15,7 @@ services:
       dockerfile: Dockerfile
     depends_on:
       - db
-    expose:
+    ports:
       - "5050:5050"
     networks:
       - mern-network
