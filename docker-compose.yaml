@@ -1,8 +1,6 @@
 services:
   forntend:
-    build:
-      context: mern/frontend
-      dockerfile: Dockerfile
+    image: "pwnhcl/frontend:v1"
     ports:
       - "5173:5173"
     networks:
@@ -10,9 +8,7 @@ services:
     container_name: frontend
 
   backend:
-    build:
-      context: mern/backend
-      dockerfile: Dockerfile
+    image: "pwnhcl/backend:v1"
     depends_on:
       - db
     ports:
